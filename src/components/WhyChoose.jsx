@@ -6,9 +6,12 @@ import { Shop } from '@mui/icons-material';
 const SectionFour = () => {
   return (
     <Container sx={{ my: 8, mt: { md: 18 } }}>
-      <Divider sx={{ px: 2, mb: 4 }} component="div" role="presentation">
+      {/* <Divider sx={{ px: 2, mb: 4 }} component="div" role="presentation">
         <Typography variant="h4">Why are you waiting for?</Typography>
-      </Divider>
+      </Divider> */}
+      <Typography align="center" variant="h4" sx={{ mb: 4 }}>
+        Why are you waiting for?
+      </Typography>
       <Stack alignItems="center" sx={{ maxWidth: '50rem', m: 'auto' }}>
         <Typography
           sx={{ textAlign: 'center', mb: 2 }}

@@ -14,7 +14,7 @@ const SectionThree = () => {
         alignItems="center"
       >
         <Box sx={{ flex: 1 }}>
-          <Box sx={{ width: '24rem' }}>
+          <Box sx={{ width: '20rem', md: { width: '24rem' } }}>
             <Image
               src={mobileIcon}
               alt="mobile icon"
