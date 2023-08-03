@@ -100,6 +100,26 @@ const Footer = () => {
                   </Typography>
                 </Link>
               </Box>
+              <Box sx={{ my: 1 }}>
+                <Link
+                  onClick={() => window.scrollTo(0, 0)}
+                  href="/account-delete"
+                >
+                  <Typography
+                    sx={{
+                      py: 1,
+                      ':hover': {
+                        textDecoration: 'underline',
+                        cursor: 'default',
+                      },
+                    }}
+                    color="white"
+                    variant="caption"
+                  >
+                    Delete my Account
+                  </Typography>
+                </Link>
+              </Box>
             </Stack>
           </Stack>
           <Divider />
