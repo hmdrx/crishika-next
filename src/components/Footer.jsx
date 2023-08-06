@@ -39,9 +39,9 @@ const Footer = () => {
               <Typography sx={{ py: 1 }} color="white" variant="caption">
                 support@crishika.com
               </Typography>
-              <Typography sx={{ py: 1 }} color="white" variant="caption">
+              {/* <Typography sx={{ py: 1 }} color="white" variant="caption">
                 Phone +91 8349006546
-              </Typography>
+              </Typography> */}
             </Stack>
 
             <Stack>
@@ -52,9 +52,9 @@ const Footer = () => {
               >
                 Locate Us
               </Typography>
-              <Typography sx={{ py: 1 }} color="white" variant="caption">
+              {/* <Typography sx={{ py: 1 }} color="white" variant="caption">
                 Nawagaon
-              </Typography>
+              </Typography> */}
               <Typography sx={{ py: 1 }} color="white" variant="caption">
                 Deobhog, gariyaband CG
               </Typography>
