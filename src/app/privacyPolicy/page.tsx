@@ -1,10 +1,24 @@
 import { Container, Typography } from '@mui/material';
+import Script from 'next/script';
 import React from 'react';
 import Background from '../../components/Background';
 
 const PrivacyPolicy = () => {
   return (
-    <>
+    <div>
+      {/* <!-- Google tag (gtag.js) --> */}
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-QDZHVVJQG7"
+      />
+
+      <Script id="google-analytics">
+        {`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QDZHVVJQG7');`}
+      </Script>
       <Background />
       <Container sx={{ py: 4 }}>
         <h2>Privacy Policy</h2>
@@ -526,7 +540,7 @@ const PrivacyPolicy = () => {
           <li>By email: support@crishika.com</li>
         </ul>
       </Container>
-    </>
+    </div>
   );
 };
 

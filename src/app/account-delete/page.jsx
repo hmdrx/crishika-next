@@ -19,6 +19,7 @@ import {
   ValidateName,
 } from '../../utils/Validators';
 import { colors } from '@/constants/colors';
+import Script from 'next/script';
 
 const DeleteAccount = () => {
   const [inputs, setInputs] = useState();
@@ -93,6 +94,19 @@ const DeleteAccount = () => {
   };
   return (
     <Container sx={{ my: 8 }}>
+      {/* <!-- Google tag (gtag.js) --> */}
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-QDZHVVJQG7"
+      />
+
+      <Script id="google-analytics">
+        {`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  gtag('config', 'G-QDZHVVJQG7');`}
+      </Script>
       <Typography sx={{ mb: 4 }} align="center" variant="h4">
         Account Deletion Request
       </Typography>

@@ -4,10 +4,24 @@ import { colors } from '../../constants/colors';
 import qr from '../../assets/images/donate-qrcode.png';
 import Background from '../../components/Background';
 import Image from 'next/image';
+import Script from 'next/script';
 
 const Donate = () => {
   return (
-    <>
+    <div>
+      {/* <!-- Google tag (gtag.js) --> */}
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-QDZHVVJQG7"
+      />
+
+      <Script id="google-analytics">
+        {`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QDZHVVJQG7');`}
+      </Script>
       <Background />
       <Container maxWidth="sm" sx={{ py: 4 }}>
         <Typography variant="h4">
@@ -33,7 +47,7 @@ const Donate = () => {
           </Box>
         </Stack>
       </Container>
-    </>
+    </div>
   );
 };
 
