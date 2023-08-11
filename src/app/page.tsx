@@ -1,4 +1,4 @@
-// import { createTheme, ThemeProvider } from '@mui/material';
+// 'use client';
 import Background from '../components/Background';
 import Hero from '../components/Hero';
 import FreeForever from '../components/FreeForever';
@@ -7,8 +7,11 @@ import Benefits from '../components/Benefits';
 import WhyChoose from '../components/WhyChoose';
 import Contact from '../components/Contact';
 import Script from 'next/script';
+// import { useRouter } from 'next/router';
 
 export default function Home() {
+  // const router = useRouter();
+  // console.log(router.query);
   return (
     <div>
       {/* <!-- Google tag (gtag.js) --> */}
@@ -33,4 +36,8 @@ export default function Home() {
       <Contact />
     </div>
   );
+}
+
+export async function getServerSideProps({ context }: { context: any }) {
+  console.log(context);
 }

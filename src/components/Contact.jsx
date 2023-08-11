@@ -19,6 +19,7 @@ import {
   ValidateName,
 } from '../utils/Validators';
 import { colors } from '@/constants/colors';
+import { useSearchParams, redirect } from 'next/navigation';
 
 const Contact = () => {
   const [inputs, setInputs] = useState();
@@ -27,6 +28,12 @@ const Contact = () => {
     email: false,
     message: false,
   });
+  const query = useSearchParams();
+
+  if (query.has('fbclid')) {
+    redirect('https://play.google.com/store/apps/details?id=com.crishika_app');
+  }
+
   const [loading, setLoading] = useState(false);
 
   const [snackbar, setSnackbar] = useState({
