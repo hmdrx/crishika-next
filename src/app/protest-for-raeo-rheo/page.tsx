@@ -21,7 +21,7 @@ type Tdata = {
   name: string;
 };
 
-const baseUrl = 'http://localhost:6767/api/v1/protester';
+const baseUrl = process.env.NEXT_PUBLIC_PROTEST_URL;
 function App() {
   const [name, setName] = useState('');
   const [error, setError] = useState('');
