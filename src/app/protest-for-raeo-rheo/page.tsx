@@ -143,11 +143,7 @@ function App() {
         setError('Please enter your name');
         return;
       }
-      if (
-        name.trim().length < 3 ||
-        /\d/.test(name) ||
-        /[^a-zA-Z\d]/.test(name)
-      ) {
+      if (name.length < 3 || /\d/.test(name)) {
         setError('Please enter a valid name');
         return;
       }
