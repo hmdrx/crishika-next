@@ -21,7 +21,6 @@ type Tdata = {
   name: string;
 };
 
-const baseUrl = process.env.NEXT_PUBLIC_PROTEST_URL;
 function App() {
   const [name, setName] = useState('');
   const [error, setError] = useState('');
@@ -46,7 +45,9 @@ function App() {
   const fetchProtester = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await axios.get(baseUrl);
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/protester`
+      );
       res.data.protester.reverse();
 
       // Find the index of the 'hum' protester
@@ -153,10 +154,13 @@ function App() {
 
       if (status === 'notSent') {
         const data = getLocalData();
-        const res1 = await axios.patch(baseUrl, {
-          _id: data._id,
-          name: name,
-        });
+        const res1 = await axios.patch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/protester`,
+          {
+            _id: data._id,
+            name: name,
+          }
+        );
 
         if (res1.status === 200) {
           localStorage.setItem(
@@ -168,9 +172,12 @@ function App() {
         }
       }
 
-      const res = await axios.post(baseUrl, {
-        name: name,
-      });
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/protester`,
+        {
+          name: name,
+        }
+      );
 
       if (res.status === 201) {
         localStorage.setItem('protester', JSON.stringify(res.data.protester));
@@ -239,10 +246,13 @@ function App() {
   const handleYes = async () => {
     try {
       const data = getLocalData();
-      const res = await axios.patch(baseUrl, {
-        _id: data._id,
-        sentMail: true,
-      });
+      const res = await axios.patch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/protester`,
+        {
+          _id: data._id,
+          sentMail: true,
+        }
+      );
 
       if (res.status === 200) {
         localStorage.setItem('protester', JSON.stringify(res.data.protester));
@@ -261,11 +271,14 @@ function App() {
   const handleNo = async () => {
     try {
       const data = getLocalData();
-      const res = await axios.delete(baseUrl, {
-        data: {
-          _id: data._id,
-        },
-      });
+      const res = await axios.delete(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/protester`,
+        {
+          data: {
+            _id: data._id,
+          },
+        }
+      );
 
       if (res.status === 204) {
         localStorage.removeItem('protester');
