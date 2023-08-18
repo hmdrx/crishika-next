@@ -182,7 +182,7 @@ function App() {
       if (res.status === 201) {
         localStorage.setItem('protester', JSON.stringify(res.data.protester));
         await fetchProtester();
-        const recipients = 'agricgminister@gmail.com, xyz@gmail.com';
+        const recipients = process.env.NEXT_PUBLIC_EMAIL_LIST!;
         const recipientList = recipients
           .split(/[,;]/)
           .map(email => email.trim())
