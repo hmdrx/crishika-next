@@ -139,12 +139,37 @@ function App() {
         return;
       }
 
-      if (name.trim().length === 0) {
-        setError('Please enter your name');
-        return;
-      }
-      if (name.length < 3 || /\d/.test(name)) {
-        setError('Please enter a valid name');
+      const validateName = (name: string) => {
+        const trimmedName = name.trim();
+
+        if (trimmedName.length === 0) {
+          return 'Please enter your name';
+        }
+
+        if (trimmedName.length < 3) {
+          return 'Name must be at least 3 characters long';
+        }
+
+        if (!/^[a-zA-Z\s]+$/.test(trimmedName)) {
+          return 'Name contains invalid characters';
+        }
+
+        return null; // Validation successful
+      };
+
+      // if (name.trim().length === 0) {
+      //   setError('Please enter your name');
+      //   return;
+      // }
+      // if (name.length < 3 || /\d/.test(name)) {
+      //   setError('Please enter a valid name');
+      //   return;
+      // }
+      const validationError = validateName(name);
+
+      if (validationError) {
+        setError(validationError);
+
         return;
       }
 
@@ -223,6 +248,8 @@ function App() {
         severity: 'error',
         message: error.message,
       });
+    } finally {
+      setSendingMail(false);
     }
   };
 
